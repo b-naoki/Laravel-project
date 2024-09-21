@@ -49,13 +49,7 @@
             width: 100%;
             box-sizing: border-box;
         }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .submit-btn, .login-btn, .home-btn {
+        .submit-btn {
             padding: 12px 20px;
             background-color: #000;
             color: #E50027;
@@ -66,9 +60,30 @@
             width: 100%;
             transition: background-color 0.3s, color 0.3s;
         }
-        .submit-btn:hover, .login-btn:hover, .home-btn:hover {
+        .submit-btn:hover {
             background-color: #E50027;
             color: #fff;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .login-btn, .home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .login-btn:hover, .home-btn:hover {
+            background-color: #E50027;
+            color: white;
         }
     </style>
 </head>
@@ -111,10 +126,10 @@
             <button type="submit" class="submit-btn">登録</button>
         </form>
 
-        <div class="button-container">
-            <button class="login-btn" onclick="location.href='{{ url('/login') }}'">ログイン</button>
-            <button class="home-btn" onclick="location.href='{{ url('/') }}'">ホームへ戻る</button>
-        </div>
+        <div class="buttons button-container">
+           <a href="{{ url('/login') }}" class="login-btn">ログイン</a>
+           <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
+    </div>
     </div>
 
 </body>

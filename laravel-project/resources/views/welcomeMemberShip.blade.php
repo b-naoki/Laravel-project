@@ -35,40 +35,25 @@
             border: none;
             border-radius: 5px;
         }
-        .register-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #000;
-            color: red;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-        }
-        .register-btn:hover {
-            background-color: #E50027;
-            color: white;
-        }
-        .login-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #000;
-            color: red;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-        }
-        .login-btn:hover {
-            background-color: #E50027;
-            color: white;
-        }
         .button-container {
             display: flex;
             justify-content: center;
             gap: 10px;
+        }
+        .register-btn, .login-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .register-btn:hover, .login-btn:hover {
+            background-color: #E50027;
+            color: white;
         }
     </style>
 </head>

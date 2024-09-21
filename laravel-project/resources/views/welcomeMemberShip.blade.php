@@ -59,9 +59,7 @@
 
     <h1>Welcome to the Membership Site</h1>
     <div class="buttons button-container">
-        <button class="login-btn" onclick="location.href='login.php'">ログイン</button>
-        <!-- <button class="register-btn" onclick="location.href='register.php'">登録</button> -->
-         <!-- 登録ボタン -->
+        <button class="register-btn" onclick="location.href='{{ url('/login') }}'">ログイン</button>
         <button class="register-btn" onclick="location.href='{{ url('/register') }}'">登録</button>
 
     </div>

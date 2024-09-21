@@ -41,47 +41,47 @@
             font-size: 16px;
         }
         .change-email-btn, .change-name-btn {
+            display: inline-block;
             padding: 10px 20px;
-            background-color: #555; /* ボタンの背景色を設定 */
-            color: #fff; /* 文字色を白に設定 */
+            background-color: #000;
+            color: red;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            margin-top: 15px; /* 上に余白を追加してボタンを下に移動 */
-            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
         }
         .change-email-btn:hover, .change-name-btn:hover {
-            background-color: #E50027; /* ホバー時の背景を赤に */
-            color: #fff;
+            background-color: #E50027;
+            color: white;
         }
         .button-container {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 200px; /* ボタンを下に移動 */
+            margin-top: 250px;
         }
-        .action-btn {
-            padding: 12px 20px;
-            background-color: #000; /* ボタンの背景を黒に設定 */
-            color: #E50027; /* ボタンの文字色を赤に設定 */
+        .logout-btn, .home-btn, .settings-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: red;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 18px;
-            width: 100%; /* ボタンもフォームの幅に合わせる */
-            transition: background-color 0.3s, color 0.3s; /* ホバー時の効果をスムーズに */
+            text-align: center;
+            text-decoration: none;
         }
-        .action-btn:hover {
-            background-color: #E50027; /* ホバー時の背景を赤に */
-            color: #fff; /* ホバー時の文字色を白に */
+        .logout-btn:hover, .home-btn:hover, .settings-btn:hover {
+            background-color: #E50027;
+            color: white;
         }
         .profile-image {
-           width: 100px; /* 幅を100pxに設定 */
-           height: 100px; /* 高さを100pxに設定 */
-           border-radius: 50%; /* 丸い形にするためのスタイル */
-           margin-bottom: 20px; /* 下のマージンを追加 */
-           border: 2px solid #E50027; /* 枠線の色 */
+           width: 100px;
+           height: 100px;
+           border-radius: 50%;
+           margin-bottom: 20px;
+           border: 2px solid #E50027;
         }
     </style>
 </head>
@@ -93,16 +93,15 @@
     <div class="user-info">
         <p>ようこそ、{{ Auth::user()->name }}さん！</p>
         <p>メールアドレス: {{ Auth::user()->email }}</p>
-
-    <button class="change-name-btn" onclick="location.href='{{ url('/change-name') }}'">名前を変更する</button>
-    <button class="change-email-btn" onclick="location.href='{{ url('/change-email') }}'">メールアドレスを変更する</button>
+    <a href="{{ url('/change-name') }}" class="change-name-btn">ホームへ戻る</a>
+    <a href="{{ url('/change-email') }}" class="change-email-btn">メールアドレスを変更する</a>
     </div>
 
     <img src="{{ Auth::user()->profile_image }}" alt="プロフィール画像" class="profile-image">
     <div class="button-container">
-        <button class="action-btn" onclick="location.href='{{ url('/') }}'">ホームへ戻る</button>
-        <button class="action-btn" onclick="location.href='{{ url('/settings') }}'">設定</button>
-        <button class="action-btn" onclick="location.href='{{ url('/logout') }}'">ログアウト</button>
+        <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
+        <a href="{{ url('/settings') }}" class="settings-btn">設定画面</a>
+        <a href="{{ url('/logout') }}" class="logout-btn">ログアウト</a>
     </div>
 </div>
 

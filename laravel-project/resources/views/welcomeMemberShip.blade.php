@@ -5,6 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Membership Site</title>
+
+</head>
+<body>
+
+    <div class="logo">
+        <img src="https://laravel.com/img/logotype.min.svg" alt="Laravel Logo" width="200">
+    </div>
+
+    <h1>Laravel学習会員サイト</h1>
+    <div class="buttons button-container">
+       <a href="{{ url('/login') }}" class="login-btn">ログイン</a>
+       <a href="{{ url('/register') }}" class="register-btn">登録</a>
+    </div>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,17 +70,5 @@
             color: white;
         }
     </style>
-</head>
-<body>
-
-    <div class="logo">
-        <img src="https://laravel.com/img/logotype.min.svg" alt="Laravel Logo" width="200">
-    </div>
-
-    <h1>Laravel学習会員サイト</h1>
-    <div class="buttons button-container">
-       <a href="{{ url('/login') }}" class="login-btn">ログイン</a>
-       <a href="{{ url('/register') }}" class="register-btn">登録</a>
-    </div>
 </body>
 </html>

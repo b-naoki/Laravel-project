@@ -5,6 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laravel会員サイトログイン画面</title>
+
+</head>
+<body>
+
+    <h1>Laravel会員サイト<br>会員ユーザーログイン</h1>
+
+    <div class="form-container">
+        <form action="{{ url('/login') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">パスワード:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="forgot-password">
+                <a href="{{ url('/password/reset') }}">パスワードを忘れた方はこちら</a>
+            </div>
+
+            <button type="submit" class="submit-btn">ログイン</button>
+        </form>
+        
+        <div class="button-container">
+          <a href="{{ url('/register') }}" class="register-btn">登録</a>
+          <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
+        </div>
+    </div>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -96,35 +127,5 @@
             color: white;
         }
     </style>
-</head>
-<body>
-
-    <h1>Laravel会員サイト<br>会員ユーザーログイン</h1>
-
-    <div class="form-container">
-        <form action="{{ url('/login') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="email">メールアドレス:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">パスワード:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-
-            <div class="forgot-password">
-                <a href="{{ url('/password/reset') }}">パスワードを忘れた方はこちら</a>
-            </div>
-
-            <button type="submit" class="submit-btn">ログイン</button>
-        </form>
-        
-        <div class="button-container">
-          <a href="{{ url('/register') }}" class="register-btn">登録</a>
-          <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
-        </div>
-    </div>
-
 </body>
 </html>

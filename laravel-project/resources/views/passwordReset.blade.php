@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>パスワードリセット</title>
+
+</head>
+<body>
+
+    <h1>パスワードリセット</h1>
+
+    <div class="form-container">
+        <form action="{{ url('/password/reset') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit" class="submit-btn">パスワードリセットリンクを送信</button>
+        </form>
+    </div>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,21 +73,5 @@
             color: #fff;
         }
     </style>
-</head>
-<body>
-
-    <h1>パスワードリセット</h1>
-
-    <div class="form-container">
-        <form action="{{ url('/password/reset') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="email">メールアドレス:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <button type="submit" class="submit-btn">パスワードリセットリンクを送信</button>
-        </form>
-    </div>
-
 </body>
 </html>

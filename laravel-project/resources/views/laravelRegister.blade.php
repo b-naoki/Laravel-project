@@ -5,6 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laravel会員サイト登録画面</title>
+
+</head>
+<body>
+
+    <h1>Laravel学習サイト<br>会員ユーザー登録</h1>
+
+    <div class="form-container">
+        <form action="{{ url('/register') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="name">ユーザー名:</label>
+                <input type="text" id="name" name="name" required value="{{ old('name') }}">
+                @error('name')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required value="{{ old('email') }}">
+                @error('email')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="password">パスワード:</label>
+                <input type="password" id="password" name="password" required>
+                @error('password')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation">パスワード確認:</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" required>
+            </div>
+            <div class="form-group">
+                <label for="image">プロフィール画像:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            <button type="submit" class="submit-btn">登録</button>
+        </form>
+
+        <div class="buttons button-container">
+           <a href="{{ url('/login') }}" class="login-btn">ログイン</a>
+           <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
+    </div>
+    </div>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -86,51 +133,5 @@
             color: white;
         }
     </style>
-</head>
-<body>
-
-    <h1>Laravel学習サイト<br>会員ユーザー登録</h1>
-
-    <div class="form-container">
-        <form action="{{ url('/register') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="name">ユーザー名:</label>
-                <input type="text" id="name" name="name" required value="{{ old('name') }}">
-                @error('name')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="email">メールアドレス:</label>
-                <input type="email" id="email" name="email" required value="{{ old('email') }}">
-                @error('email')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="password">パスワード:</label>
-                <input type="password" id="password" name="password" required>
-                @error('password')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="password_confirmation">パスワード確認:</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" required>
-            </div>
-            <div class="form-group">
-                <label for="image">プロフィール画像:</label>
-                <input type="file" id="image" name="image" accept="image/*">
-            </div>
-            <button type="submit" class="submit-btn">登録</button>
-        </form>
-
-        <div class="buttons button-container">
-           <a href="{{ url('/login') }}" class="login-btn">ログイン</a>
-           <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
-    </div>
-    </div>
-
 </body>
 </html>

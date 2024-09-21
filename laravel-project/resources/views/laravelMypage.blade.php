@@ -5,7 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laravel会員サイトマイページ画面</title>
-    <style>
+
+</head>
+<body>
+
+    <h1>Laravel学習サイト<br>会員マイページ</h1>
+
+    <div class="container">
+    <div class="user-info">
+        <p>ようこそ、{{ Auth::user()->name }}さん！</p>
+        <p>メールアドレス: {{ Auth::user()->email }}</p>
+    <a href="{{ url('/change-name') }}" class="change-name-btn">ホームへ戻る</a>
+    <a href="{{ url('/change-email') }}" class="change-email-btn">メールアドレスを変更する</a>
+    </div>
+
+    <img src="{{ Auth::user()->profile_image }}" alt="プロフィール画像" class="profile-image">
+    <div class="button-container">
+        <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
+        <a href="{{ url('/settings') }}" class="settings-btn">設定画面</a>
+        <a href="{{ url('/logout') }}" class="logout-btn">ログアウト</a>
+    </div>
+</div>
+
+<style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -84,26 +106,5 @@
            border: 2px solid #E50027;
         }
     </style>
-</head>
-<body>
-
-    <h1>Laravel学習サイト<br>会員マイページ</h1>
-
-    <div class="container">
-    <div class="user-info">
-        <p>ようこそ、{{ Auth::user()->name }}さん！</p>
-        <p>メールアドレス: {{ Auth::user()->email }}</p>
-    <a href="{{ url('/change-name') }}" class="change-name-btn">ホームへ戻る</a>
-    <a href="{{ url('/change-email') }}" class="change-email-btn">メールアドレスを変更する</a>
-    </div>
-
-    <img src="{{ Auth::user()->profile_image }}" alt="プロフィール画像" class="profile-image">
-    <div class="button-container">
-        <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
-        <a href="{{ url('/settings') }}" class="settings-btn">設定画面</a>
-        <a href="{{ url('/logout') }}" class="logout-btn">ログアウト</a>
-    </div>
-</div>
-
 </body>
 </html>

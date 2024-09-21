@@ -57,7 +57,7 @@
         <img src="https://laravel.com/img/logotype.min.svg" alt="Laravel Logo" width="200">
     </div>
 
-    <h1>Welcome to the Membership Site</h1>
+    <h1>Laravel学習会員サイト</h1>
     <div class="buttons button-container">
         <button class="register-btn" onclick="location.href='{{ url('/login') }}'">ログイン</button>
         <button class="register-btn" onclick="location.href='{{ url('/register') }}'">登録</button>

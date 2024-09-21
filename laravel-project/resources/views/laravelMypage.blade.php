@@ -27,8 +27,11 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            width: 400px; /* コンテナの幅を広く設定 */
-            text-align: center;
+            width: 800px; /* 幅を800pxに変更 */
+            height: 600px; /* 高さを600pxに変更 */
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
         }
         .user-info {
             margin-bottom: 20px;
@@ -37,11 +40,26 @@
             margin: 10px 0;
             font-size: 16px;
         }
+        .change-email-btn, .change-name-btn {
+            padding: 10px 20px;
+            background-color: #555; /* ボタンの背景色を設定 */
+            color: #fff; /* 文字色を白に設定 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px; /* 上に余白を追加してボタンを下に移動 */
+            transition: background-color 0.3s;
+        }
+        .change-email-btn:hover, .change-name-btn:hover {
+            background-color: #E50027; /* ホバー時の背景を赤に */
+            color: #fff;
+        }
         .button-container {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 200px; /* ボタンを下に移動 */
         }
         .action-btn {
             padding: 12px 20px;
@@ -58,25 +76,35 @@
             background-color: #E50027; /* ホバー時の背景を赤に */
             color: #fff; /* ホバー時の文字色を白に */
         }
+        .profile-image {
+           width: 100px; /* 幅を100pxに設定 */
+           height: 100px; /* 高さを100pxに設定 */
+           border-radius: 50%; /* 丸い形にするためのスタイル */
+           margin-bottom: 20px; /* 下のマージンを追加 */
+           border: 2px solid #E50027; /* 枠線の色 */
+        }
     </style>
 </head>
 <body>
 
-    <h1>Laravel会員サイト<br>マイページ</h1>
+    <h1>Laravel学習サイト<br>会員マイページ</h1>
 
     <div class="container">
-        <div class="user-info">
-            <p>ようこそ、{{ Auth::user()->name }}さん！</p>
-            <p>メールアドレス: {{ Auth::user()->email }}</p>
-        </div>
-        
-        <!-- ボタンエリア -->
-        <div class="button-container">
-            <button class="action-btn" onclick="location.href='{{ url('/') }}'">ホームへ戻る</button>
-            <button class="action-btn" onclick="location.href='{{ url('/settings') }}'">設定</button>
-            <button class="action-btn" onclick="location.href='{{ url('/logout') }}'">ログアウト</button>
-        </div>
+    <div class="user-info">
+        <p>ようこそ、{{ Auth::user()->name }}さん！</p>
+        <p>メールアドレス: {{ Auth::user()->email }}</p>
+
+    <button class="change-name-btn" onclick="location.href='{{ url('/change-name') }}'">名前を変更する</button>
+    <button class="change-email-btn" onclick="location.href='{{ url('/change-email') }}'">メールアドレスを変更する</button>
     </div>
+
+    <img src="{{ Auth::user()->profile_image }}" alt="プロフィール画像" class="profile-image">
+    <div class="button-container">
+        <button class="action-btn" onclick="location.href='{{ url('/') }}'">ホームへ戻る</button>
+        <button class="action-btn" onclick="location.href='{{ url('/settings') }}'">設定</button>
+        <button class="action-btn" onclick="location.href='{{ url('/logout') }}'">ログアウト</button>
+    </div>
+</div>
 
 </body>
 </html>

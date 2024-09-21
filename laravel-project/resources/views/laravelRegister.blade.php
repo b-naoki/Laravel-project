@@ -14,7 +14,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to right, #111, #E50027); /* 黒から赤のグラデーション */
+            background: linear-gradient(to right, #111, #E50027);
             color: #fff;
         }
         h1 {
@@ -27,7 +27,7 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            width: 400px; /* フォームの幅を広く設定 */
+            width: 400px;
         }
         .form-group {
             margin-bottom: 20px;
@@ -38,12 +38,15 @@
             margin-bottom: 8px;
             font-size: 16px;
         }
-        input {
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"] {
             padding: 12px;
             border: none;
             border-radius: 5px;
             font-size: 18px;
-            width: 100%; /* 入力フィールドをフォームの幅に合わせる */
+            width: 100%;
             box-sizing: border-box;
         }
         .button-container {
@@ -54,27 +57,27 @@
         }
         .submit-btn, .login-btn, .home-btn {
             padding: 12px 20px;
-            background-color: #000; /* ボタンの背景を黒に設定 */
-            color: #E50027; /* ボタンの文字色を赤に設定 */
+            background-color: #000;
+            color: #E50027;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 18px;
-            width: 100%; /* ボタンもフォームの幅に合わせる */
-            transition: background-color 0.3s, color 0.3s; /* ホバー時の効果をスムーズに */
+            width: 100%;
+            transition: background-color 0.3s, color 0.3s;
         }
         .submit-btn:hover, .login-btn:hover, .home-btn:hover {
-            background-color: #E50027; /* ホバー時の背景を赤に */
-            color: #fff; /* ホバー時の文字色を白に */
+            background-color: #E50027;
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <h1>Laravel会員サイト<br>ユーザー登録</h1>
+    <h1>Laravel学習サイト<br>会員ユーザー登録</h1>
 
     <div class="form-container">
-        <form action="{{ url('/register') }}" method="POST">
+        <form action="{{ url('/register') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">ユーザー名:</label>
@@ -101,10 +104,13 @@
                 <label for="password_confirmation">パスワード確認:</label>
                 <input type="password" id="password_confirmation" name="password_confirmation" required>
             </div>
+            <div class="form-group">
+                <label for="image">プロフィール画像:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
             <button type="submit" class="submit-btn">登録</button>
         </form>
 
-        <!-- 追加されたボタン -->
         <div class="button-container">
             <button class="login-btn" onclick="location.href='{{ url('/login') }}'">ログイン</button>
             <button class="home-btn" onclick="location.href='{{ url('/') }}'">ホームへ戻る</button>

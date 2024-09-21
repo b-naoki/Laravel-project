@@ -71,7 +71,7 @@
 </head>
 <body>
 
-    <h1>Laravel会員サイト<br>ユーザーログイン</h1>
+    <h1>Laravel会員サイト<br>会員ユーザーログイン</h1>
 
     <div class="form-container">
         <form action="{{ url('/login') }}" method="POST">

@@ -1,18 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
-    // return view('welcomeMemberShip');
     return view('welcomeMemberShip');
 });
 
-// 新しいルートを追加
 Route::get('/register', function () {
-    return view('laravelRegister'); // laravelRegister.blade.phpを表示
+    return view('laravelRegister');
 });
 
-// 新しいルートを追加
 Route::get('/login', function () {
-    return view('laravelLogin'); // laravelRegister.blade.phpを表示
+    return view('laravelLogin');
 });
+
+Route::get('/mypage', function () {
+    return view('laravelMypage');
+})->name('mypage');
+
+Route::get('/logout', function () {
+    return view('welcomeMemberShip');
+})->name('logout');
+
+Route::post('/register', [RegisterController::class, 'register'])->name('register');

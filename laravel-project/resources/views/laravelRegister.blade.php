@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel会員サイト<br>ユーザー登録</title>
+    <title>Laravel会員サイト登録画面</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,53 +73,36 @@
 
     <h1>Laravel会員サイト<br>ユーザー登録</h1>
 
-    <!-- <div class="form-container">
-        <form action="{{ url('/register') }}" method="POST"> -->
-            @csrf <!-- CSRFトークンを含めることでセキュリティを確保 -->
-            <!-- <div class="form-group">
-                <label for="username">ユーザー名:</label>
-                <input type="text" id="username" name="username" required>
+    <div class="form-container">
+        <form action="{{ url('/register') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="name">ユーザー名:</label>
+                <input type="text" id="name" name="name" required value="{{ old('name') }}">
+                @error('name')
+                    <div class="error">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="email">メールアドレス:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required value="{{ old('email') }}">
+                @error('email')
+                    <div class="error">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="password">パスワード:</label>
                 <input type="password" id="password" name="password" required>
+                @error('password')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation">パスワード確認:</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" required>
             </div>
             <button type="submit" class="submit-btn">登録</button>
         </form>
-        <form action="{{ url('/register') }}" method="POST"> -->
-    @csrf
-    <div class="form-group">
-        <label for="name">ユーザー名:</label>
-        <input type="text" id="name" name="name" required value="{{ old('name') }}">
-        @error('name')
-            <div class="error">{{ $message }}</div>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="email">メールアドレス:</label>
-        <input type="email" id="email" name="email" required value="{{ old('email') }}">
-        @error('email')
-            <div class="error">{{ $message }}</div>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="password">パスワード:</label>
-        <input type="password" id="password" name="password" required>
-        @error('password')
-            <div class="error">{{ $message }}</div>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="password_confirmation">パスワード確認:</label>
-        <input type="password" id="password_confirmation" name="password_confirmation" required>
-    </div>
-    <button type="submit" class="submit-btn">登録</button>
-</form>
-
 
         <!-- 追加されたボタン -->
         <div class="button-container">

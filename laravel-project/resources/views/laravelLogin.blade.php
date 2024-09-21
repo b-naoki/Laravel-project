@@ -46,27 +46,6 @@
             width: 100%;
             box-sizing: border-box;
         }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .submit-btn, .register-btn, .home-btn {
-            padding: 12px 20px;
-            background-color: #000;
-            color: #E50027;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            width: 100%;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .submit-btn:hover, .register-btn:hover, .home-btn:hover {
-            background-color: #E50027;
-            color: #fff;
-        }
         .forgot-password {
             text-align: right;
             margin-top: 10px;
@@ -79,6 +58,42 @@
         }
         .forgot-password a:hover {
             text-decoration: underline;
+        }
+        .submit-btn {
+            padding: 12px 20px;
+            background-color: #000;
+            color: #E50027;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #E50027;
+            color: #fff;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .register-btn, .home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .register-btn:hover, .home-btn:hover {
+            background-color: #E50027;
+            color: white;
         }
     </style>
 </head>
@@ -106,8 +121,8 @@
         </form>
         
         <div class="button-container">
-            <button class="register-btn" onclick="location.href='{{ url('/register') }}'">登録</button>
-            <button class="home-btn" onclick="location.href='{{ url('/') }}'">ホームへ戻る</button>
+          <a href="{{ url('/register') }}" class="register-btn">登録</a>
+          <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
         </div>
     </div>
 

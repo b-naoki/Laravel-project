@@ -14,8 +14,8 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to right, #111, #E50027); /* 黒から赤のグラデーション */
-            color: #fff; /* 文字色を白に設定 */
+            background: linear-gradient(to right, #111, #E50027);
+            color: #fff;
         }
         h1 {
             color: #fff;
@@ -35,13 +35,35 @@
             border: none;
             border-radius: 5px;
         }
-        .login-btn {
-            background-color: #000; /* ボタンの背景を黒に設定 */
-            color: #E50027; /* ボタンの文字色を赤に設定 */
-        }
         .register-btn {
-            background-color: #000; /* ボタンの背景を黒に設定 */
-            color: #E50027; /* ボタンの文字色を赤に設定 */
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .register-btn:hover {
+            background-color: #E50027;
+            color: white;
+        }
+        .login-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .login-btn:hover {
+            background-color: #E50027;
+            color: white;
         }
         .button-container {
             display: flex;
@@ -52,17 +74,14 @@
 </head>
 <body>
 
-    <!-- Laravelロゴ -->
     <div class="logo">
         <img src="https://laravel.com/img/logotype.min.svg" alt="Laravel Logo" width="200">
     </div>
 
     <h1>Laravel学習会員サイト</h1>
     <div class="buttons button-container">
-        <button class="register-btn" onclick="location.href='{{ url('/login') }}'">ログイン</button>
-        <button class="register-btn" onclick="location.href='{{ url('/register') }}'">登録</button>
-
+       <a href="{{ url('/login') }}" class="login-btn">ログイン</a>
+       <a href="{{ url('/register') }}" class="register-btn">登録</a>
     </div>
-
 </body>
 </html>

@@ -14,7 +14,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to right, #111, #E50027); /* 黒から赤のグラデーション */
+            background: linear-gradient(to right, #111, #E50027);
             color: #fff;
         }
         h1 {
@@ -27,7 +27,7 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            width: 400px; /* フォームの幅を広く設定 */
+            width: 400px;
         }
         .form-group {
             margin-bottom: 20px;
@@ -43,7 +43,7 @@
             border: none;
             border-radius: 5px;
             font-size: 18px;
-            width: 100%; /* 入力フィールドをフォームの幅に合わせる */
+            width: 100%;
             box-sizing: border-box;
         }
         .button-container {
@@ -54,18 +54,31 @@
         }
         .submit-btn, .register-btn, .home-btn {
             padding: 12px 20px;
-            background-color: #000; /* ボタンの背景を黒に設定 */
-            color: #E50027; /* ボタンの文字色を赤に設定 */
+            background-color: #000;
+            color: #E50027;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 18px;
-            width: 100%; /* ボタンもフォームの幅に合わせる */
-            transition: background-color 0.3s, color 0.3s; /* ホバー時の効果をスムーズに */
+            width: 100%;
+            transition: background-color 0.3s, color 0.3s;
         }
         .submit-btn:hover, .register-btn:hover, .home-btn:hover {
-            background-color: #E50027; /* ホバー時の背景を赤に */
-            color: #fff; /* ホバー時の文字色を白に */
+            background-color: #E50027;
+            color: #fff;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .forgot-password a {
+            color: #E50027;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -75,7 +88,7 @@
 
     <div class="form-container">
         <form action="{{ url('/login') }}" method="POST">
-            @csrf <!-- CSRFトークンを含めることでセキュリティを確保 -->
+            @csrf
             <div class="form-group">
                 <label for="email">メールアドレス:</label>
                 <input type="email" id="email" name="email" required>
@@ -84,10 +97,14 @@
                 <label for="password">パスワード:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+
+            <div class="forgot-password">
+                <a href="{{ url('/password/reset') }}">パスワードを忘れた方はこちら</a>
+            </div>
+
             <button type="submit" class="submit-btn">ログイン</button>
         </form>
         
-        <!-- 追加されたボタン -->
         <div class="button-container">
             <button class="register-btn" onclick="location.href='{{ url('/register') }}'">登録</button>
             <button class="home-btn" onclick="location.href='{{ url('/') }}'">ホームへ戻る</button>

@@ -19,7 +19,10 @@
     <a href="{{ url('/change-email') }}" class="change-email-btn">メールアドレスを変更する</a>
     </div>
 
-    <img src="{{ Auth::user()->profile_image }}" alt="プロフィール画像" class="profile-image">
+    <div class="image-container">
+            <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="プロフィール画像" class="profile-image">
+    </div>
+
     <div class="button-container">
         <a href="{{ url('/') }}" class="home-btn">ホームへ戻る</a>
         <a href="{{ url('/settings') }}" class="settings-btn">設定画面</a>
@@ -81,7 +84,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 250px;
+            margin-top: 50px;
         }
         .logout-btn, .home-btn, .settings-btn {
             display: inline-block;
@@ -98,12 +101,16 @@
             background-color: #E50027;
             color: white;
         }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
         .profile-image {
-           width: 100px;
-           height: 100px;
-           border-radius: 50%;
-           margin-bottom: 20px;
-           border: 2px solid #E50027;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 2px solid #E50027;
         }
     </style>
 </body>

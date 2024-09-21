@@ -14,7 +14,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to right, #111, #E50027); /* 黒から赤のグラデーション */
+            background: linear-gradient(to right, #111, #E50027);
             color: #fff;
         }
         h1 {
@@ -27,8 +27,8 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            width: 800px; /* 幅を800pxに変更 */
-            height: 600px; /* 高さを600pxに変更 */
+            width: 800px;
+            height: 600px;
             max-width: 90%;
             max-height: 90%;
             overflow-y: auto;
